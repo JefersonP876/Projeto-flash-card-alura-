@@ -1,0 +1,101 @@
+<!Flash cards html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Flashcard</title>
+</head>
+<body>
+    <main>
+        <section id="container">
+            <!-- Os cartões de flashcard serão gerados aqui pelo JavaScript -->
+        </section>
+    </main>
+    <footer>
+        <p>Projeto desenvolvido por Jeferson Pereira</p>
+    </footer>
+    <script src="app.js"></script>
+    <script src="perguntas.js"></script>
+</body>
+</html>
+const flashcards = [
+    {
+        pergunta: "O que é JavaScript?",
+        resposta: "O JavaScript é uma linguagem de programação."
+    },
+    {
+        pergunta: "O que é HTML?",
+        resposta: "HTML é a linguagem de marcação para criar páginas web."
+    },
+    {
+        pergunta: "O que é CSS?",
+        resposta: "CSS é uma linguagem de estilo usada para descrever a apresentação de um documento escrito em HTML."
+    },
+    {
+        pergunta: "O que é um algoritmo?",
+        resposta: "Um algoritmo é uma sequência de instruções ou passos a serem seguidos para resolver um problema ou realizar uma tarefa."
+    },
+    {
+        pergunta: "O que significa a sigla API?",
+        resposta: "API significa Interface de Programação de Aplicações, que permite que diferentes softwares se comuniquem entre si."
+    },
+    {
+        pergunta: "O que é um banco de dados?",
+        resposta: "Um banco de dados é um sistema organizado para armazenar, gerenciar e recuperar dados de forma eficiente."
+    },
+    {
+        pergunta: "O que é a linguagem Python utilizada para?",
+        resposta: "Python é uma linguagem de programação de alto nível usada para desenvolvimento web, análise de dados, inteligência artificial, automação e mais."
+    },
+    {
+        pergunta: "O que é front-end e back-end no desenvolvimento web?",
+        resposta: "Front-end refere-se à parte do site com a qual os usuários interagem, enquanto back-end é o servidor, banco de dados e aplicação que funcionam nos bastidores."
+    },
+    {
+        pergunta: "O que são variáveis em programação?",
+        resposta: "Variáveis são espaços de armazenamento que têm um nome e podem conter dados que podem ser alterados durante a execução de um programa."
+    },
+    {
+        pergunta: "O que é a metodologia ágil?",
+        resposta: "A metodologia ágil é uma abordagem para gerenciamento de projetos que enfatiza a colaboração, flexibilidade e entrega rápida de produtos."
+    },
+    {
+        pergunta: "O que é a computação em nuvem?",
+        resposta: "Computação em nuvem é a entrega de serviços de computação pela internet, incluindo armazenamento, processamento e gerenciamento de dados."
+    },
+    {
+        pergunta: "O que são sistemas operacionais?",
+        resposta: "Sistemas operacionais são softwares que gerenciam o hardware do computador e fornecem serviços para programas de aplicação."
+    },
+    {
+        pergunta: "O que é aprendizado de máquina?",
+        resposta: "Aprendizado de máquina é uma subárea da inteligência artificial que permite que sistemas aprendam e melhorem automaticamente com base em dados."
+    }
+];
+
+// Seleciona o container onde os cartões serão inseridos
+const container = document.getElementById("container");
+
+// Cria os flashcards
+flashcards.forEach(card => {
+    const artigo = document.createElement("article");
+    artigo.className = "cartao";
+
+    const conteudo = document.createElement("div");
+    conteudo.className = "cartao__conteudo";
+
+    const perguntaDiv = document.createElement("div");
+    perguntaDiv.className = "cartao__conteudo__pergunta";
+    perguntaDiv.innerHTML = `<h3>${card.pergunta}</h3>`;
+
+    const respostaDiv = document.createElement("div");
+    respostaDiv.className = "cartao__conteudo__resposta";
+    respostaDiv.innerHTML = `<p>${card.resposta}</p>`;
+
+    conteudo.appendChild(perguntaDiv);
+    conteudo.appendChild(respostaDiv);
+    artigo.appendChild(conteudo);
+    container.appendChild(artigo);
+});
+
